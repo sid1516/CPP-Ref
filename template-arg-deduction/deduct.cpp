@@ -19,3 +19,12 @@
     func(expr);
 */
 
+/*
+    decltype(auto) type deduction
+    decltype(name): doesn’t strip cv qualifiers, or reference, deduces the exact type of the name
+    decltype(lvalue expression of type T) = T&
+    int a; decltype(a) deduces int and not int& as a isn’t an expression
+    decltype(prvalue expression of type T) = T
+    decltype(xvalue expression of type T) = T&& 
+    Uses std::move 
+*/
