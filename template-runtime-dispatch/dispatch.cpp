@@ -34,7 +34,8 @@ void updateSet(bool b, const Foo& f) {
 }
 
 
-//can copy this code into cpp-insights to see the explicit template instantiations
+// https://cppinsights.io/s/0a40f61c
+
 int main() {
     
 }
