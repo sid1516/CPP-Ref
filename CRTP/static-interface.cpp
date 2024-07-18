@@ -4,10 +4,12 @@
 //allows for static polymorphism that removes the need for a virtual table
 template <typename Derived>
 struct Animal {
-    void speak() const{
-        const Derived& d = static_cast<const Derived&>(*this);
-        d.speak();
-    }
+    public:
+        Derived& derived() {return static_cast<Derived&>(*this);}
+        Derived const& derived() const { return static_cast<Derived const&> (*this); }
+        void speak() const{
+            derived().speak();
+        }
 };
 
 //provides its own implementation of 
@@ -29,7 +31,7 @@ void recordSound(const Animal<T>& animal) {
     animal.speak();
 }
 
-
+// https://cppinsights.io/s/f1f35ede
 int main() {
     Dog d;
     Cat c;
